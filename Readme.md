@@ -1,5 +1,5 @@
-The Debug information utility
-=============================
+The Debug information dumper
+============================
 
 A Debug information dumper function, with automatic output escaping where necessary.
 
