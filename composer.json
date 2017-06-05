@@ -1,6 +1,6 @@
 {
     "name": "netsilik/d",
-    "description": "Debug information dumper with automatic output escaping where necessary.",
+    "description": "A Debug information dumper function, with automatic output escaping where necessary.",
     "keywords": ["debug", "development"],
     "type": "library",
     "license": "MIT",
@@ -9,7 +9,7 @@
         {
             "name": "Jacco-V",
             "role": "Developer",
-			"homepage": "http://netsilik.nl"
+            "homepage": "http://netsilik.nl"
         }
     ],
     "minimum-stability": "stable",
