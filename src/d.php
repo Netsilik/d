@@ -95,7 +95,7 @@ if (!function_exists('d')) {
 		if (PHP_SAPI === 'cli') { // output as text
 			echo "\n".$out;
 		} else { // output as html
-			echo '<pre style="margin: 0;"><span style="color:#000038; line-height: 1em; background-color:#F4F4F4;">'.htmlspecialchars($out, ENT_NOQUOTES | ENT_XHTML).'</span></pre>';
+			echo '<pre style="margin: 0;"><span style="color:#000038; font-size: 13px; line-height: 15px; background-color:#F4F4F4;">'.htmlspecialchars($out, ENT_NOQUOTES | ENT_XHTML).'</span></pre>';
 		}
 	}
 }
