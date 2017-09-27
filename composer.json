@@ -20,7 +20,8 @@
     },
     "autoload": {
         "files": [
-			"src/d.php"
+			"src/d.php",
+			"src/bt.php"
 		]
     }
 }
