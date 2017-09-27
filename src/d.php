@@ -30,11 +30,12 @@ if (!function_exists('d')) {
 			// recusion protection
 			ob_start();
 			var_dump($var);
-			preg_match('/#\d+/', substr(ob_get_clean(), 0, 256), $grep);
-			if (in_array($grep[0], $instances)) {
-				return "*RECURSION*\n";
+			if (1 === preg_match('/#\d+/', substr(ob_get_clean(), 0, 256), $grep)) {
+				if (in_array($grep[0], $instances)) {
+					return "*RECURSION*\n";
+				}
+				$instances[] = $grep[0];
 			}
-			$instances[] = $grep[0];
 			
 			$rc = new ReflectionClass($var);
 			$out .= 'object('.$rc->getName().") {\n";
