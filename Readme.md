@@ -16,7 +16,6 @@ Latest version available at: https://gitlab.com/Netsilik/d
 
 ---
 
-```
 Usage
 -----
 
