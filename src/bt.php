@@ -29,7 +29,7 @@ if (!function_exists('bt')) {
 						$args[] = '['.(count($arg)?count($arg).' elements':'').']';
 						break;
 					case 'resource':
-						$args[] = get_resource_type($var);
+						$args[] = get_resource_type($arg);
 						break;
 					case 'boolean':
 						$args[] = $arg ? 'true' : 'false';
