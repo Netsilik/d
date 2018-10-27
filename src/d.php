@@ -118,7 +118,7 @@ if (!function_exists('d')) {
 		if (PHP_SAPI === 'cli') { // output as text
 			echo "\n" . $calledFrom . "\n" . $out;
 		} else { // output as html
-			echo '<pre style="margin: 0; padding: 2px 4px; background-color:#F4F4F4; line-height: 15px; display: inline-block;"><span style="color:#880000; font-size: 11px;">' . $calledFrom . '</span><br><span style="color:#000038; font-size: 13px;">' . htmlspecialchars($out, ENT_NOQUOTES | ENT_XHTML) . '</span></pre>';
+			echo '<pre style="margin: 0; padding: 2px 4px; background-color:#F4F4F4; line-height: 15px; display: inline-block;"><span style="color:#880000; font-size: 11px;">' . $calledFrom . '</span><br><span style="color:#000038; font-size: 13px;">' . htmlspecialchars($out, ENT_NOQUOTES | ENT_XHTML) . '</span></pre><br>';
 		}
 	}
 }
