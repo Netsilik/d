@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @copyright (c) 2010-2018 Netsilik (http://netsilik.nl)
+ * @license       MIT
+ */
+
 if (!function_exists('bt')) {
 	/**
 	 * Debug funcion for dumping call backtrace

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @copyright (c) 2010-2018 Netsilik (http://netsilik.nl)
+ * @license       MIT
+ */
+
 if (!function_exists('d')) {
 	/**
 	 * Debug funcion for dumping contents and type of a variable
