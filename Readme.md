@@ -13,14 +13,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 Contact: info@netsilik.nl  
 Latest version available at: https://gitlab.com/Netsilik/d
-
-
-Installation
-------------
-
 ```
-composer require netsilik/d
-```
+
+---
 
 Usage
 -----
@@ -29,3 +24,11 @@ Usage
 $foo = 123;
 d($foo); // int(123)
 ```
+
+---
+
+Installation
+------------
+
+```
+composer require netsilik/d
