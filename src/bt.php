@@ -15,8 +15,12 @@ if (!function_exists('bt')) {
 	{
 		$bt = debug_backtrace();
 		
+		$file       = isset($bt[0]['file']) ? $bt[0]['file'] : '?';
+		$line       = isset($bt[0]['line']) ? $bt[0]['line'] : '?';
+		$calledFrom = $file . ':' . $line;
+		
 		$lines = [];
-		for ($i = 0; $i < min($limit, count($bt)); $i++) {
+		for ($i = 1; $i < min($limit, count($bt)); $i++) {
 			$step = $bt[$i];
 			
 			$args = [];
@@ -43,7 +47,7 @@ if (!function_exists('bt')) {
 			}
 			
 			
-			$line = '#'.str_pad($i, 2).' ';
+			$line = '#'.str_pad($i - 1, 2).' ';
 			if (isset($step['class'])) {
 				$line .= $step['class'].$step['type'];
 			}
@@ -64,9 +68,9 @@ if (!function_exists('bt')) {
 		}
 		
 		if (PHP_SAPI === 'cli') { // output as text
-			echo "\n".$out;
+			echo "\n" . $calledFrom . "\n" . $out;
 		} else { // output as html
-			echo '<pre style="margin: 0;"><span style="color:#000038; font-size: 13px; line-height: 15px; background-color:#F4F4F4;">'.htmlspecialchars($out, ENT_NOQUOTES | ENT_XHTML).'</span></pre>';
+			echo '<pre style="margin: 0; padding: 2px 4px; background-color:#F4F4F4; line-height: 15px; display: inline-block;"><span style="color:#880000; font-size: 11px;">' . $calledFrom . '</span><br><span style="color:#000038; font-size: 13px;">'.htmlspecialchars($out, ENT_NOQUOTES | ENT_XHTML).'</span></pre>';
 		}
 	}
 }
