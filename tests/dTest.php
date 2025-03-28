@@ -48,14 +48,14 @@ class dTest extends \PHPUnit_Framework_TestCase {
 	 */
 	public function testReturn() {	
 		
-		$this->assertEquals("string(3) 'Bob'\n", d('Bob', true));
+		$this->assertEquals("string(3) 'Bob'\n", d('Bob', null, true));
 	}
 	
 	/**
 	 * Test Max Depth
 	 */
 	public function testMaxDepth() {	
-		$this->assertEquals("*MAX DEPTH*\n", d('Carol', true, 8));
+		$this->assertEquals("*MAX DEPTH*\n", d('Carol', null, true, 8));
 	}
 	
 	/**
