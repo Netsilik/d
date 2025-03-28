@@ -9,11 +9,12 @@ if (!function_exists('d')) {
 	/**
 	 * Debug funcion for dumping contents and type of a variable
 	 *
-	 * @param mixed $var    The variable to output for debug information
-	 * @param bool  $return Optional flag to have the result returned (without any escaping) instead of echoed
-	 * @param int   $depth  The indentation level, used for recursive calls
+	 * @param mixed       $var    The variable to output for debug information
+	 * @param string|null $label  The label for the variable to output, prepended to the output
+	 * @param bool        $return Optional flag to have the result returned (without any escaping) instead of echoed
+	 * @param int         $depth  The indentation level, used for recursive calls
 	 */
-	function d($var, bool $return = false, int $depth = 0)
+	function d($var, string $label = null, bool $return = false, int $depth = 0)
 	{
 		static $instances = [];
 		
@@ -38,7 +39,7 @@ if (!function_exists('d')) {
 			$out .= '(' . count($var) . ") {\n";
 			foreach ($var as $key => $value) {
 				$out .= str_repeat(' ', $depth * $indent + $indent) . '[' . $key . '] => ';
-				$out .= d($value, true, $depth + 1);
+				$out .= d($value, null, true, $depth + 1); // Note: recursion
 			}
 			$out .= str_repeat(' ', $depth * $indent) . '}';
 		} elseif ($type == 'object') {
@@ -74,7 +75,7 @@ if (!function_exists('d')) {
 				$out .= ': $' . $property->name . ' = ';
 				
 				$property->setAccessible(true);
-				$out .= d($property->getValue($var), true, $depth + 1);
+				$out .= d($property->getValue($var), null, true, $depth + 1); // Note: recursion
 			}
 			
 			// dynamic properties
@@ -82,7 +83,7 @@ if (!function_exists('d')) {
 				if (!in_array($name, $public)) {
 					$out .= str_repeat(' ', $depth * $indent + $indent);
 					$out .= 'dynamic: $' . $name . ' = ';
-					$out .= d($value, true, $depth + 1);
+					$out .= d($value, null, true, $depth + 1); // Note: recursion
 				}
 			}
 			$out .= str_repeat(' ', $depth * $indent) . '}';
