@@ -34,7 +34,7 @@ if (!function_exists('d')) {
 		];
 		$type   = gettype($var);
 		
-		$out = $types[ $type ];
+		$out = (null !== $label ? $label . ' => ' : '') . $types[ $type ];
 		if ($type == 'array') {
 			$out .= '(' . count($var) . ") {\n";
 			foreach ($var as $key => $value) {
