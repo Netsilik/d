@@ -14,7 +14,7 @@ if (!function_exists('d')) {
 	 * @param bool        $return Optional flag to have the result returned (without any escaping) instead of echoed
 	 * @param int         $depth  The indentation level, used for recursive calls
 	 */
-	function d($var, string $label = null, bool $return = false, int $depth = 0)
+	function d($var, string|null $label = null, bool $return = false, int $depth = 0)
 	{
 		static $instances = [];
 		
